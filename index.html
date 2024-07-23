@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Even Odd App by Kamal Sir</title>
+		<style>	
+			* { font-size:50px; font-family: Cambria;}
+			body { background-color: azure;}
+		</style>
+	</head>
+	<body>
+		<center>
+			<h1>Even Odd App</h1>
+			<form onsubmit="check()">
+				<input type="number" id="num" placeholder="enter integer" />
+				<br/><br/>
+				<input type="submit" value="M1" />
+				<input type="submit" value="M2" />
+				<input type="submit" value="M3" />
+			</form>
+				<h2 id="msg" />
+			<script>
+				function check()
+				{
+					event.preventDefault();
+					let action = document.activeElement.value;
+					let num = document.getElementById("num");
+					let msg = document.getElementById("msg");
+
+					if (num.value === "")
+					{
+						alert("u did not enter integer");
+						msg.innerHTML = "";
+						num.focus();
+						return;
+
+					}
+					let n = parseInt(num.value)
+					if (action === "M1")	//turnary operator
+					{
+						let ans = n % 2 === 0 ? "even" : "odd";
+						msg.innerHTML = "ans 1 = " + ans;
+					}
+					else if (action === "M2")	// if else statement
+					{
+						let ans = "";
+						if (n % 2 === 0)
+						{
+							ans = "even";
+						}
+						else
+						{
+							ans = "odd";
+						}
+						msg.innerHTML = "ans 2 = " + ans;
+					}
+					else if (action === "M3")	//switch case
+					{
+						let ans = "";
+						switch(n % 2)
+						{
+					case 0:		ans = "even";		break;
+					case 1:		ans = "odd";		break;
+					case -1:	ans = "odd";		break;
+						}
+						msg.innerHTML = "ans 3 = " + ans;
+					}
+				}
+			</script>
+		</center>
+	</body>
+</html>
